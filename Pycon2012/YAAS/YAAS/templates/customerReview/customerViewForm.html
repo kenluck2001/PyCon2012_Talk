@@ -1,0 +1,29 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+	<form action="{% url YAAS.customerReview.views.customerReviewView bidno %}" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+	{% if form.rating.errors %}
+		<ol>
+		{% for error in form.rating.errors %}
+		    <li><strong>{{ error|escape }}</strong></li>
+		{% endfor %}
+		</ol>
+	{% endif %}
+
+	{% if form.comment.errors %}
+		<ol>
+		{% for error in form.comment.errors %}
+		    <li><strong>{{ error|escape }}</strong></li>
+		{% endfor %}
+		</ol>
+	{% endif %}
+
+	<input type="submit" value="Submit" />
+	</form>
+	<a href="{% url YAAS.views.my_account%}"> <p> Back to account </p> </a>	
+
+{% endblock %}
+

@@ -1,0 +1,49 @@
+{% extends "Modbase.html" %}
+
+
+{% block site_wrapper %}
+<table border="1">
+  <caption>Bids on Item analysis</caption>
+  <tr>
+    <th>Item name</th>
+    <th>Date of Item creation</th>
+    <th>Bid Count</th>
+  </tr>
+	{% for item,bidvalue in itemobjDict.items %}
+	  <tr>
+		<td>{{item.name}}</td>
+		<td>{{item.created_at}}</td>
+		<td>{{bidvalue}}</td>
+	  </tr>
+	{% empty %}
+		<p>There for no bidded item for analysis </p>
+	{% endfor %}
+</table>
+<br/>
+
+<table border="1">
+  <caption>Descriptive statistics</caption>
+  <tr>
+    <th>Mean</th>
+    <th>Variance</th>
+  </tr>
+  <tr>
+    <td>{{mean}}</td>
+    <td>{{variance}}</td>
+  </tr>
+</table>
+
+	<a href="{% url YAAS.graph.views.displayrankedItemwithBidsPieChart%}"><p>Pie chart of Items with highest bids</p> </a>
+<h4>This accounts for {{percentTotalString}}% of the total Bids made</h4>
+
+	<a href="{% url YAAS.stats.views.allWeekUserReport %}"> <p>back to all Weeks Report </p> </a>
+
+	<a href="{% url YAAS.stats.views.allMonthUserReport %}"> <p>back to all Months Report </p> </a>
+
+{% endblock %}
+
+
+
+
+
+

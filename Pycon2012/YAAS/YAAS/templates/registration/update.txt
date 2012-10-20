@@ -1,0 +1,12 @@
+Dear {{ firstname }} {{lastname}},
+
+Your account with {{ site_name }} has been successfully updated.
+The following are updated.
+{% for word in my_list %}
+	word
+{% endfor %}
+			
+Regards.
+
+Administration
+{{ admin }}

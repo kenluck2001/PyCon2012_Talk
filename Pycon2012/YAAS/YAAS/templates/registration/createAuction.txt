@@ -1,0 +1,10 @@
+Dear {{ firstname }} {{lastname}},
+
+You have created a new auction in our {{ site_name }}.
+Thanks for your support. Remember to read out terms of business policy.
+
+			
+Regards.
+
+Administration
+{{ admin }}

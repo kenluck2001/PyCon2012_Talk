@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block site_wrapper %}
+<table border="1">
+  <caption>Log Report</caption>
+  <tr>
+    <th>URL</th>
+    <th>HTTP STATUS</th>
+    <th>RESPONSE TIME</th>
+    <th>CONTENT MATCH</th>
+  </tr>
+{% for monObj in monitoredObjList %}
+  <tr>
+    <td><a href={{monObj.url}}><p>link</p> </a></td>
+    <td>{{monObj.httpStatus}}</td>
+    <td>{{monObj.responseTime}}</td>
+    <td>{{monObj.contentStatus}}</td>
+  </tr>
+{% empty %}
+	<p>There for no log report.</p>
+{% endfor %}
+</table>
+
+{% endblock %}

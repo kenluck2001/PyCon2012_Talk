@@ -1,0 +1,12 @@
+Dear {{ firstname }} {{lastname}},
+
+Your account with {{ site_name }} has been successfully updated.
+The have updated the following in the auction (item).
+{% for word in my_list %}
+	word  
+{% endfor %}
+			
+Regards.
+
+Administration
+{{ admin }}

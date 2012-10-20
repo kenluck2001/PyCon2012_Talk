@@ -1,0 +1,4 @@
+http://www.yahoo.com | Success | 1.80942511559 | 2012-04-21 20:00:02.704265 | No
+http://www.google.com | Success | 0.119923114777 | 2012-04-21 20:00:02.824233 | No
+http://www.twitter.com | Success | 0.958115100861 | 2012-04-21 20:00:03.782387 | No
+http://www.ewtn.com | Success | 0.0554599761963 | 2012-04-21 20:00:03.837884 | No

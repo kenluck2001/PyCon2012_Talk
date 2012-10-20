@@ -1,0 +1,18 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+
+{% for item in myItem %}
+	<img src="/{{ MEDIA_URL }}/{{ item.image.name}}" alt="{{ item.name }}" height="100" width="120 "  />
+	<a href="{% url YAAS.views.getItemDetails item.id %}"> <p> item summary </p> </a>
+	<a href="{% url YAAS.views.getBidsOnItem  item.id %}"> <p> bid summary </p> </a>
+<hr />
+
+{% endfor %}	
+<br/>
+<br/>
+<a href="{% url YAAS.views.my_account %}"> <p> Back to account </p> </a>
+{% endblock %}
+
+
+

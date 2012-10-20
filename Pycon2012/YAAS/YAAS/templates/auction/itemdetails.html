@@ -1,0 +1,28 @@
+{% extends "Modbase.html" %}
+{% load show_stars %}
+{% block site_wrapper %}
+
+	<p> Name: {{ item.name }} </p>
+	<p> Description:  {{ item.description}} </p> 
+	<p> Current Highest Bid:  {{ item.highestbid}} </p>
+	<img src="/{{ MEDIA_URL }}/{{ item.image.name}}" alt="{{ item.name }}" height="450" width="600 "  />
+	<a href="{{ item.get_absolute_url }}"> <p> Make bid on this item </p> </a>
+	
+	<a href="{% url YAAS.comment.views.base item.id %}"> <p> Comment on this item </p> </a> 
+
+	<a href="{% url YAAS.customerReview.views.getCustomerReviewOnItem item.id %}"> <p> Seller Previous History (Seller credibility) </p> </a>
+
+
+	{% ifequal userid  item.owner.id %}
+		<a href="{% url YAAS.views.auction_update item.id %}"> <p> Update Auction </p> </a>
+	{% endifequal %}
+	<br/>
+	<p><strong> Seller's Contact </strong></p>
+	<p>Seller Email: {{item.owner.email}}	</p>
+	<p>Seller Phone: {{item.owner.phone_number}}	</p>
+	<br/>
+	<a href="{% url YAAS.views.my_account %}"> <p> Back to account </p> </a>
+{% endblock %}
+
+
+

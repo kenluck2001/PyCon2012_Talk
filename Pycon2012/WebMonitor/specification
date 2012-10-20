@@ -1,0 +1,15 @@
+Program Specification
+======================
+
+This is a monitoring tool for web site administrators for detecting problems on their sites. This project is based on the popular request library in python. The statistics from the monitored site can be accessible in a log file and django web interface.
+
+Main functions:
+
+1. This reads a list of web pages (HTTP URLs) and corresponding page content requirements from a configuration file.
+2. The application should intermittently makes HTTP request to each page.
+3. Ensure that the application verifies that the page content received from the server matches the content requirements.
+4. The monitoring app should measures the time it took for the web server to complete the whole request.
+5. Writes a log file that shows the progress of the periodic checks.
+6. Implement a single-page HTTP server interface in the same process that shows (HTML) each monitored web site and their current (last check) status. This should be done in Django framework.
+
+

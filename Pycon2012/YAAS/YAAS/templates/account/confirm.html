@@ -1,0 +1,11 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+	{% if expired %}
+		You have to register again as the link has expired since you did not confirm within 2 days.
+	{% endif %}
+
+{% endblock %}
+
+
+

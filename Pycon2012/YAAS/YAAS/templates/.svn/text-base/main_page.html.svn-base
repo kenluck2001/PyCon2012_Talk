@@ -1,0 +1,43 @@
+<script type="text/javascript" language="javascript" src="{{MEDIA_URL}}/js/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="{{MEDIA_URL}}/js/spy.js"></script>
+<style type="text/css">
+  @import url("{{ MEDIA_URL}}/css/spystyle.css");
+</style> 
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>Online auction Site</title>
+
+<script>
+$(function () {
+    $('ul.spy').simpleSpy();
+});
+</script>
+
+
+</head>
+<body>
+    <h1>Items Added Today</h1>
+
+    <div id="sidebar">
+        <ul class="spy">
+        	 {% for items in item %}
+        	 <li>
+        	 	<a href="#" title="{{items.Name}}"><img width="70" height="70" src="{{ items.image.url }}" title="" /></a>
+        	 	<h5><a href="#" title="View round">{{items.Name}}</a></h5>
+        	 	<p class="info">{{ items.date.day }} by <a href="#" title="Visit neue's age.">{{items.Owner}}</a></p>
+        		<p class="tags"></p>
+        	 </li>
+        	 {% endfor %}
+        	 
+        	 </ul>
+     </div>
+     <div id="menu">
+     	<ul>
+     		<li>Home|</li>
+     		<li>About|</li>
+     		<li>Contact|</li>
+     		<li>Login</li>
+     	</ul>		
+     </div>	
+    </body>
+     

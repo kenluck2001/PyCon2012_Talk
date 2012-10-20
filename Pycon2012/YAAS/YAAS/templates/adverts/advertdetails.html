@@ -1,0 +1,15 @@
+{% extends "Modbase.html" %}
+
+
+{% block site_wrapper %}
+	{% if newAdvert %}
+		<p>Advert name: {{newAdvert.name}}</p>
+		<p>Advert description: {{newAdvert.description}}</p> <br/>
+		<li><img src="/{{ MEDIA_URL }}/{{ newAdvert.image.name}}" alt="{{ newAdvert.name }}" height="200" width="250"  /></li>
+	{% endif %} 
+
+	<a href="/admin/"><p>back to admin</p> </a>
+
+{% endblock %}
+
+

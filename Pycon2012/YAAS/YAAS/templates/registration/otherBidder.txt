@@ -1,0 +1,10 @@
+Dear {{ firstname }} {{lastname}},
+
+hello,
+Your bid was not successful at {{ site_name }}.
+However,you are currently on waiting list.
+			
+Regards.
+
+Administration
+{{ admin }}

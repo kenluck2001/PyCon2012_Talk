@@ -1,0 +1,33 @@
+{% extends "improvedBase.html" %}
+
+
+{% block site_wrapper %}
+  <div id="messages">retrieving messages...</div>
+
+  <form method="post" action=".">
+	{% csrf_token %}
+    {{ form.as_p}}
+	<input type="submit" value="Submit" />
+  </form>
+
+
+<script>
+  function getMessages() {
+    $.ajax({
+      url: "/comment/{{itemid}}/messages/",
+	  type: "GET",
+      cache: false,
+      success: function(html){
+           $("#messages").html(html);
+      }
+    });
+    setTimeout('updateMsg()', 2000);
+  }
+  getMessages();
+</script>
+
+<a href="{% url YAAS.views.my_account %}"> <p> back to account </p> </a>
+
+{% endblock %}
+
+

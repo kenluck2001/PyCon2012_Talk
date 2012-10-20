@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block site_wrapper %}
+	<div id ="galary">
+		<ul id="slider">
+    	{% for item in advertItems %}
+
+				<li><img src="/{{ MEDIA_URL }}/{{ item.image.name}}" alt="{{ item.name }}" height="200" width="250"  /></li>
+    {% empty %}
+    	No advertisements were found at this time.
+    {% endfor %}
+		</ul>
+	</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,32 @@
+{% extends "Modbase.html" %}
+
+
+{% block site_wrapper %}
+
+{% for weekno in weeklist %}
+	<a href="{% url YAAS.stats.views.weekRegistdUserReport  weekno %}"> <p> Week {{weekno}} Registered User Report Summary </p> </a>
+
+	<a href="{% url YAAS.stats.views.weekOnlineUserReport  weekno %}"> <p> Week {{weekno}} Online User Report Summary </p> </a>
+
+	<a href="{% url YAAS.graph.views.weeklyScatterOnlinUsrBid  weekno %}"> <p> Week {{weekno}} Scatter Diagram of bids against number of online users </p> </a>
+
+	<a href="{% url YAAS.graph.views.createWkBarChart  weekno %}"> <p> Week {{weekno}} Bar chart of total online user at regular intervals </p> </a>
+
+	<a href="{% url YAAS.graph.views.createWkBarChartRegUsr  weekno %}"> <p> Week {{weekno}} Bar chart of total Registered user at regular intervals </p> </a>
+
+<br/>
+<br/>
+{% endfor %}
+
+	<a href="{% url YAAS.stats.views.rankingItemBasedOnBids%}"><p>Ranking of items based on bids</p> </a>
+
+	<a href="{% url YAAS.stats.views.searchstringAnalysis%}"><p>Analysis of search string given by user</p> </a>
+
+<a href="/admin/"><p> Back to Admin</p></a>
+{% endblock %}
+
+
+
+
+
+

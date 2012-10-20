@@ -1,0 +1,28 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+	<form action="{% url YAAS.views.login %}" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+	{% if form.username.errors %}
+		<ol>
+		{% for error in form.username.errors %}
+		    <li><strong>{{ error|escape }}</strong></li>
+		{% endfor %}
+		</ol>
+	{% endif %}
+
+	{% if form.password.errors %}
+		<ol>
+		{% for error in form.password.errors %}
+		    <li><strong>{{ error|escape }}</strong></li>
+		{% endfor %}
+		</ol>
+	{% endif %}
+
+	<input type="submit" value="Submit" />
+	</form>
+	<a href="{% url YAAS.views.register %}"> <p> New users should register here!!!</p> </a>
+{% endblock %}
+

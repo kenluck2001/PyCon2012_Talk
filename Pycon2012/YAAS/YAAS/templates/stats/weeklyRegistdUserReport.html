@@ -1,0 +1,45 @@
+{% extends "Modbase.html" %}
+
+
+{% block site_wrapper %}
+<table border="1">
+  <caption>Week {{weekno}} Registered User Report</caption>
+  <tr>
+    <th>No.of Registered User</th>
+    <th>Days</th>
+    <th>Month</th>
+    <th>Year</th>
+    <th>Week</th>
+  </tr>
+{% for regObj in RegUserObj %}
+  <tr>
+    <td>{{regObj.no_of_reg_user}}</td>
+    <td>{{regObj.day}}</td>
+    <td>{{regObj.month}}</td>
+    <td>{{regObj.year}}</td>
+    <td>{{regObj.week}}</td>
+  </tr>
+{% empty %}
+	<p>There for no report for week {{weekno}} </p>
+{% endfor %}
+</table><br/>
+
+<table border="1">
+  <caption>Descriptive statistics</caption>
+  <tr>
+    <th>Mean</th>
+    <th>Variance</th>
+  </tr>
+  <tr>
+    <td>{{mean}}</td>
+    <td>{{variance}}</td>
+  </tr>
+</table>
+	<a href="{% url YAAS.stats.views.allWeekUserReport %}"> <p>back to all Weeks Report </p> </a>
+{% endblock %}
+
+
+
+
+
+

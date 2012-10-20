@@ -1,0 +1,101 @@
+{% extends "Modbase.html" %}
+
+{% load search_tags %}
+
+{% block site_wrapper %}
+
+<div class="topView">
+	<h3>Personal Account View</h3>
+	<p><strong>Welcome, {{ name|capfirst }}!</strong></p>
+	<br /><br />
+
+	<div class="logout">
+		<a href="{% url YAAS.views.logoutview %}"> |Logout </a>  
+	</div>
+
+</div>
+
+
+<div class="firstcontainer">
+
+	<div class="leftside">
+		<table border="1">
+		{% if featureditems %}
+		<caption><strong>Featured | Latest items </strong></caption>
+		{% endif %}
+		<tr>
+			{% for item in featureditems %}
+			<td>
+				<img src="/{{ MEDIA_URL }}/{{ item.image.name}}" alt="{{ item.name }}" height="100" width="125"  />
+				<a href="{% url YAAS.views.getItemDetails item.id %}"> <p> Auction information </p> </a> 	
+				<a href="{% url YAAS.views.getBidsOnItem item.id %}"> <p> All bids</p> </a>	
+			</td>
+		{% if forloop.counter|divisibleby:"5" %}
+	  	</tr>
+		{% endif %}
+
+			{% empty %}
+			<p>You have no featured items.</p>
+			{% endfor %}
+	  	</tr>
+		</table>
+	</div>
+	<div class="rightside">
+		{% include "adverts/showadverts.html" %}
+	</div>
+</div>
+
+<div class="secondcontainer">
+	<table border="1">
+	{% if itemobjDict %}
+		<caption><strong>Recommended Items</strong></caption>
+	{% endif %}
+	<tr>
+		{% for item, bidvalue in itemobjDict.items %}
+		<td>
+			<img src="/{{ MEDIA_URL }}/{{ item.image.name}}" alt="{{ item.name }}" height="140" width="170 "  />
+			<a href="{% url YAAS.views.getItemDetails item.id %}"> <p> Auction information </p> </a> 
+			<a href="{% url YAAS.views.getBidsOnItem item.id %}"> <p> All bids</p> </a>
+		</td>
+	{% if forloop.counter|divisibleby:"5" %}
+  	</tr>
+	{% endif %}
+
+		{% empty %}
+		<p>You have no recommended items.</p>
+		{% endfor %}
+  	</tr>
+	</table>
+
+	<table border="1">
+		{% if mostbiddeditem %}
+		<legend><strong>Most Bidded Items</strong></legend>
+		<ul>
+			<img src="/{{ MEDIA_URL }}/{{ mostbiddeditem.image.name}}" alt="{{ mostbiddeditem.name }}" height="100" width="120"  />
+			<a href="{% url YAAS.views.getItemDetails mostbiddeditem.id %}"> <p> Auction information </p> </a> 
+			<a href="{% url YAAS.views.getBidsOnItem mostbiddeditem.id  %}"> <p> All bids</p> </a>
+		</ul>
+		{% else %}
+			<p>There are no most bidded items.</p>
+		{% endif %}
+	</table>
+</div>
+
+<div class="bottomView">
+	<p><strong>Account Controls</strong></p>
+	<ul>
+		<li><a href="{% url YAAS.views.password_change %}">Change
+		Password</a></li>
+		<li><a href="{% url YAAS.views.edit_account %}">Edit account information </a></li>
+		<li><a href="{% url YAAS.views.auction_create %}">Create Auction </a></li>
+		<li><a href="{% url YAAS.views.showAllCreatedAuction %}">Show all Auctions created by me </a></li>
+		<li><a href="{% url YAAS.views.showAllMadeBid %}">Show all Bids made by me </a></li>
+	</ul>
+	<p>To search for more items use the search box</p>
+		{% search_box request %}
+</div>
+
+{% endblock %}
+
+
+

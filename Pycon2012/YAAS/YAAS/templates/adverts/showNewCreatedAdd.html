@@ -1,0 +1,14 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+	{% if newAdvert %}
+		<img src="/{{ MEDIA_URL }}/{{ newAdvert.image.name}}" alt="{{ newAdvert.name }}" height="200" width="250"  />
+		<a href="{% url YAAS.advert.views.getAdvertDetails newAdvert.id %}"> <p> Advert details </p> </a>
+	{% else %} 
+		<p> There are no advertisement. </p>
+	{% endif %} 
+
+
+{% endblock %}
+
+

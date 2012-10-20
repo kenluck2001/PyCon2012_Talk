@@ -1,0 +1,37 @@
+{% extends "Modbase.html" %}
+
+
+{% block site_wrapper %}
+
+{% for monthno , realmonth in monthsDict.items %}
+	<a href="{% url YAAS.stats.views.monthRegistdUserReport  monthno %}"> <p>{{realmonth}} Registered User Report Summary </p> </a>
+
+	<a href="{% url YAAS.stats.views.monthOnlineUserReport  monthno %}"> <p>{{realmonth}} Online User Report Summary </p> </a>
+
+	<a href="{% url YAAS.graph.views.monthlyScatterOnlinUsrBid monthno%}"><p>{{realmonth}} Scatter Diagram of bids against number of online users </p> </a>
+
+	<a href="{% url YAAS.graph.views.createMthBarChart monthno %}">
+<p>{{realmonth}} Bar chart of total online user at regular intervals</p> </a>
+
+	<a href="{% url YAAS.graph.views.createMthBarChartRegUsr monthno%}"><p>{{realmonth}} Bar chart of total Registered user at regular intervals</p> </a>
+
+<br/>
+<br/>
+{% endfor %}
+
+	<a href="{% url YAAS.stats.views.rankingItemBasedOnBids%}"><p>Ranking of items based on bids</p> </a>
+
+	<a href="{% url YAAS.stats.views.searchstringAnalysis%}"><p>Analysis of search string given by user</p> </a>
+
+	<a href="{% url YAAS.stats.views.yearRegistdUserReport%}"><p>Current Year Registered User Report</p> </a>
+
+	<a href="{% url YAAS.stats.views.yearOnlineUserReport%}"><p>Current Year Online User Report</p> </a>
+
+<a href="/admin/"><p> Back to Admin</p></a>
+{% endblock %}
+
+
+
+
+
+

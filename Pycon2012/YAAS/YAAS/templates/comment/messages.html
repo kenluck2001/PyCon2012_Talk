@@ -1,0 +1,13 @@
+{% extends "improvedBase.html" %}
+
+
+{% block site_wrapper %}
+{% for m in messages reversed %}
+   <p>{{ m.date|date:"d-m-y, h:m:s" }} - {{ m.user.username }} said: 
+       <b>{{ m.text }}</b>
+   </p>
+{% endfor %}
+
+{% endblock %}
+
+

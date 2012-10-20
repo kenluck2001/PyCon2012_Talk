@@ -1,0 +1,37 @@
+{% extends "Modbase.html" %}
+
+
+{% block site_wrapper %}
+<table border="1">
+  <caption>Year {{year}} Online User Report</caption>
+  <tr>
+    <th>No.of Online User</th>
+    <th>Days</th>
+    <th>Month</th>
+    <th>Year</th>
+    <th>Week</th>
+    <th>TimeStamp</th>
+  </tr>
+{% for onlObj in OnlineObj %}
+  <tr>
+    <td>{{onlObj.no_of_online_user}}</td>
+    <td>{{onlObj.day}}</td>
+    <td>{{onlObj.month}}</td>
+    <td>{{onlObj.year}}</td>
+    <td>{{onlObj.week}}</td>
+    <td>{{onlObj.time_of_event}}</td>
+time_of_event
+  </tr>
+{% empty %}
+	<p>There for no report for year {{year}} </p>
+{% endfor %}
+</table>
+	<a href="{% url YAAS.stats.views.allMonthUserReport%}"><p>Back to Monthly Summary</p> </a>
+
+{% endblock %}
+
+
+
+
+
+

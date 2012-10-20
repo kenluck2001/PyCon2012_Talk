@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+
+	<title>{{page_title}}</title>
+
+	<!-- jQuery (required) -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+
+	<!-- Demo stuff -->
+	<link rel="stylesheet" href="/{{ MEDIA_URL }}/demos/css/page.css">
+
+	<!-- Anything Slider -->
+	<link rel="stylesheet" href="/{{ MEDIA_URL }}/css/anythingslider.css">
+	<script src="/{{ MEDIA_URL }}/js/jquery.anythingslider.js"></script>
+	<script>
+		// DOM Ready
+		$(function(){
+			$('#slider').anythingSlider();
+		});
+	</script>
+
+	<!-- Older IE stylesheet, to reposition navigation arrows, added AFTER the theme stylesheet -->
+	<!--[if lte IE 7]>
+	<link rel="stylesheet" href="css/anythingslider-ie.css" type="text/css" media="screen" />
+	<![endif]-->
+</head>
+
+<body>
+	{% block site_wrapper %}{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+

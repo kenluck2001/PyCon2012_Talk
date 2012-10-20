@@ -1,0 +1,12 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+<p> Your login attempt was not successful!!!.</p>
+<p> This could be a result of invalid username or password or non-existent login credential.</p>
+<p>This could also be caused by deactivated user or a user who is yet to confirm their account.</p>
+<p> If problem persist; You have to contact the administrator</p>
+
+<a href="{% url YAAS.views.indexView %}"> <p> Back to index page</p> </a>
+{% endblock %}
+
+

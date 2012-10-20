@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block site_wrapper %}
+    <div id="messages">Updating tables ...</div>
+
+    <script>
+    function refresh() {
+        $.ajax({
+            url: "/monitor/",
+            success: function(data) {
+                $('#messages').html(data);
+            }
+        });
+        setInterval("refresh()", 100000);
+    }
+
+    $(function(){
+        refresh();
+    });
+    </script>
+{% endblock %}
+
+
+
+
+
+

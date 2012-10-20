@@ -1,0 +1,14 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+<p>You have made this product review </p>
+{% if prodReviewObj %}
+	<p>Rating:  {{prodReviewObj.get_rating_display}}</p>
+	<p>Comment: {{prodReviewObj.comment}}</p>
+{% else %}
+	<p>No review has been made</p>
+{% endif %}	
+
+<a href="{% url YAAS.views.my_account %}"> <p> Back to account </p> </a>
+
+{% endblock %}

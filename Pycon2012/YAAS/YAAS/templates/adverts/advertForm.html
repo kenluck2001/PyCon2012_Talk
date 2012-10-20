@@ -1,0 +1,39 @@
+{% extends "Modbase.html" %}
+
+
+{% block site_wrapper %}
+	<form enctype="multipart/form-data" action="{% url YAAS.advert.views.advert_create %}" method="post">
+
+		{% csrf_token %}
+		{{ form.as_p }}
+
+		{% if form.name.errors %}
+			<ol>
+			{% for error in form.name.errors %}
+				<li><strong>Name: {{ error|escape }}</strong></li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+
+		{% if form.description.errors %}
+			<ol>
+			{% for error in form.description.errors %}
+				<li><strong>Description: {{ error|escape }}</strong></li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+
+		{% if form.image.errors %}
+			<ol>
+			{% for error in form.image.errors %}
+				<li><strong>Image: {{ error|escape }}</strong></li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+
+	<input type="submit" value="Submit" />
+	</form>
+
+	<a href="/admin/"><p>back to admin</p> </a>
+{% endblock %}
+

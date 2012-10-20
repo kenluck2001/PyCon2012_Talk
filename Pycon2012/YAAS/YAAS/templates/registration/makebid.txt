@@ -1,0 +1,8 @@
+Dear bidder,
+
+A new bid of {{ amount }} has been made on item {{ item_name }} at {{ timestamp }}
+			
+Regards.
+
+Administration
+{{ admin }}

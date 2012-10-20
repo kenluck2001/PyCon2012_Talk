@@ -1,0 +1,47 @@
+{% extends "Modbase.html" %}
+
+
+{% block site_wrapper %}
+<table border="1">
+  <caption>Search String Analysis</caption>
+  <tr>
+    <th>Word</th>
+    <th>Frequency</th>
+  </tr>
+{% for searchword, frequency in result %}
+  <tr>
+    <td>{{searchword}}</td>
+    <td>{{frequency}}</td>
+  </tr>
+{% empty %}
+	<p>There for no user search string for analysis </p>
+{% endfor %}
+</table>
+<br/>
+
+<table border="1">
+  <caption>Descriptive statistics</caption>
+  <tr>
+    <th>Mean</th>
+    <th>Variance</th>
+  </tr>
+  <tr>
+    <td>{{mean}}</td>
+    <td>{{variance}}</td>
+  </tr>
+</table>
+
+	<a href="{% url YAAS.graph.views.searchstringPieChart%}"><p>Pie chart of search string by user</p> </a>
+
+	<a href="{% url YAAS.stats.views.allWeekUserReport %}"> <p>back to all Weeks Report </p> </a>
+
+	<a href="{% url YAAS.stats.views.allMonthUserReport %}"> <p>back to all Months Report </p> </a>
+
+<h4>This accounts for {{percentTotalString}}% of the total string queried by all users</h4>
+{% endblock %}
+
+
+
+
+
+

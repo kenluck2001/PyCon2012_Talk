@@ -1,0 +1,71 @@
+{% extends "Modbase.html" %}
+
+{% load search_tags %}
+
+{% block site_wrapper %}
+
+<div class="header"><img src="/{{ MEDIA_URL }}/images/header.gif" />  </div>
+<div class="search">
+	{% search_box request %}
+</div>
+
+<div class="firstcontainer">
+
+	<div class="leftside">
+		<table border="0.5">
+		{% if latestItem %}
+		<caption><strong> Latest items </strong></caption>
+		{% endif %}
+		<tr>
+			{% for item in latestItem %}
+			<td>
+				<img src="/{{ MEDIA_URL }}/{{ item.image.name}}" alt="{{ item.name }}" height="100" width="125"  />
+				<a href="{% url YAAS.views.getItemDetails item.id %}"> <p> Auction information </p> </a> 	
+				<a href="{% url YAAS.views.getBidsOnItem item.id %}"> <p> All bids</p> </a>	
+			</td>
+		{% if forloop.counter|divisibleby:"5" %}
+	  	</tr>
+		{% endif %}
+
+			{% empty %}
+			<p>You have no latest items.</p>
+			{% endfor %}
+	  	</tr>
+		</table>
+	</div>
+
+	<div class="rightside">
+		{% include "adverts/showadverts.html" %}
+	</div>
+</div>
+
+<div class="secondcontainer">
+<h4>
+	<p>
+	You are welcomed to Kpoba auction site. You can trade on all kinds of legal goods. You have to ensure that your products conforms to export control rules and restrictions. The sellers are responsible for the quality of the product and should ensure that they don't break any law.
+	</p>
+	<p>
+	You can easily search for items using the search box provided in the page. You can search for items without logging into the site. However, you have to log into be able to create an auction or make a bid.
+	</p>
+	<p>
+	Each item on display has two links "Auction information" and "All bids". You need to click the "Auction information" to make a bid on an item.
+	</p>
+	<p>
+	There are some rules for bidding. You cannot bid on the item that you created and you can't bid less than the previous highest bid.
+	</p>
+	<p>
+	The "All bids" shows all the bids on the item.
+	Have a nice time doing business with us. If you don't an account. You can register here 	<a href="{% url YAAS.views.register %}"> <p> click me</p> </a>
+Alternatively, you can log in here  <a href="{% url YAAS.views.login %}"> <p> click me </p> </a>
+	</p>
+</h4>
+</div>
+
+<div class="footer">
+	<p>Please visit me now!!!!!</p>
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,67 @@
+Kindly use Linux (Ubuntu 11.04). As this configuration will be made on server side where users will not have access to.
+
+The database name has been defined in the settings.py. Changes made to this database creation sql statement must be made to the settings.py file appropriately.
+
+Ensure that you use mysql database
+I used mysql version 5.1
+create a database and user
+CREATE DATABASE YAAS CHARACTER SET utf8;
+CREATE USER 'ken'@'localhost' IDENTIFIED BY 'pass';
+GRANT ALL ON YAAS.* TO 'ken'@'localhost';
+
+
+install mysql backend
+ $ sudo apt-get install python-mysqldb
+
+install mysql backend to communicate with django
+ $ sudo apt-get install python-setuptools
+sudo python setup.py install
+
+
+run this command on another command prompt to activate the email server.Othrwise connection is refused and the user or other activities that requires email fails and displays an error of "refused connection to the user"
+
+python -m smtpd -n -c DebuggingServer localhost:1025
+
+
+
+To abstract crontab in a form where the scheduler is written in pure python. We have to download and install the following packages.
+I prefer to use easy_install instead of pip
+django-celery(http://packages.python.org/django-celery/ )
+ghettoq(http://pypi.python.org/pypi/ghettoq )
+django-picklefield (http://pypi.python.org/pypi/django-picklefield )
+django-kombu(https://github.com/ask/django-kombu#readme )
+
+$ sudo easy_install django-celery
+$ sudo easy_install ghettoq
+$ sudo apt-get install python-django-picklefield
+$ easy_install django-kombu
+
+To activate the crontab abstraction for events. We have to 
+a)Start a Celery worker
+Navigate to folder in your directory that contains the manage.py file. The run the python script as shown below
+$ python manage.py celeryd --verbosity=2 --loglevel=DEBUG 
+
+b) Start celerybeat to periodically send registered tasks to ghettoq:
+$ python manage.py celerybeat --verbosity=2 --loglevel=DEBUG 
+
+Make sure that these two command are run in seperate command prompt windows.
+
+To be able to make 2D charts in the application. We have to use 
+Matplotlib(http://matplotlib.sourceforge.net/ )
+$ sudo apt-get install python-matplotlib
+
+Numpy (http://numpy.scipy.org/ )
+$ sudo apt-get install python-numpy
+
+After setup is successful. We have to run the server to see our work.
+Navigate to the directory where manage.py file exist and run this command.
+
+$ python manage.py runserver
+
+If there are no errors then your application is working flawlessly.
+
+To see the index page.
+http://127.0.0.1:8000/index/
+
+
+Use python 2.7 as some features need to use it.

@@ -1,0 +1,45 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+	<form enctype="multipart/form-data" action="/auction/updateauction/{{itemid}}/" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+		{% if form.name.errors %}
+			<ol>
+			{% for error in form.name.errors %}
+				<li><strong>Auction name: {{ error|escape }}</strong></li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+
+		{% if form.description.errors %}
+			<ol>
+			{% for error in form.description.errors %}
+				<li><strong>Description: {{ error|escape }}</strong></li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+
+		{% if form.minimum_price.errors %}
+			<ol>
+			{% for error in form.minimum_price.errors %}
+				<li><strong>Minimum price: {{ error|escape }}</strong></li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+
+		{% if form.image.errors %}
+			<ol>
+			{% for error in form.image.errors %}
+				<li><strong>Photo: {{ error|escape }}</strong></li>
+			{% endfor %}
+			</ol>
+		{% endif %}
+
+	<input type="submit" value="Submit" />
+	</form>
+
+<a href="{% url YAAS.views.my_account %}"> <p> Back to account </p> </a>
+{% endblock %}
+

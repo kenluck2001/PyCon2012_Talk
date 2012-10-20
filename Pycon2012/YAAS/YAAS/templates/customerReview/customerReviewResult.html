@@ -1,0 +1,41 @@
+{% extends "Modbase.html" %}
+
+{% load show_stars %}
+
+{% block site_wrapper %}
+<table border="1">
+    {% for bidObj in bidObject %}
+<tr>
+	<td>
+	Case
+	</td>
+	<td>
+			<p>{{ forloop.counter }} </p>
+	</td>
+</tr>
+<tr>
+	<td>
+			<p>Customer Satistaction Rating </p>
+	</td>
+	<td>
+			<p>[{{bidObj.review.rating}} of 5]  {% show_stars bidObj.review.rating of 5 round to half %}</p>
+	</td>
+</tr>
+<tr>
+	<td>
+			<p>Comment </p>
+	</td>
+	<td>
+		<p> {{bidObj.review.comment|linebreaks }}</p>
+	</td>
+</tr>
+
+    {% empty %}
+    	There are no customer review for this item.
+    {% endfor %}
+
+</table>
+
+
+<a href="{% url YAAS.views.my_account %}"> <p> Back to account </p> </a>
+{% endblock %}

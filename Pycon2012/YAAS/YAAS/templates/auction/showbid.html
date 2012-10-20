@@ -1,0 +1,20 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+
+<p> You made the following bids </p>
+{% for bid in myBid %}
+	<p> item name: {{ bid.item.name }} </p>
+	<p> bid price: {{ bid.bid_price}} </p>
+<hr />
+{% endfor %}	
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="{% url YAAS.views.my_account %}"> <p> Back to account </p> </a>
+
+{% endblock %}
+
+
+

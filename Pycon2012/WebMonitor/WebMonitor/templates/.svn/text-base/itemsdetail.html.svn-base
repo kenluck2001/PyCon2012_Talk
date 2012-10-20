@@ -1,0 +1,40 @@
+
+<style type="text/css">
+  @import url("{{ MEDIA_URL}}/css/styles.css");
+</style> 
+
+<div id="detail">
+	<h2> Details For  {{items.Name|truncatewords:5}} </h2>
+	<img src="{{ items.image.url }}" width="150px" height="200px"/>
+	<div id="bid_info">
+		Current Winning Bid:${{ item_bid.CurrentwinningBid }}<br/>
+		Place a bid:
+		(higher than ${{item_bid.Max_Offered}})<br/>
+		start time: {{items.date}}<br/>
+		End Time: </br>
+		Reamining time: {{ rem_time.days }}d {{ rem_time.hours}}h {{rem_time.minutes }}m </br>
+	</div>
+	<div id="product_info">
+		<h1><b>Name : </b>{{ items.Name }}<br/>	</h1>
+		<h3><b>Description </b>: {{items.Description}}<br/>	</h3>
+	</div>	<hr>	
+	
+</div>
+
+	<div id="author_details">
+	<b>Posted By:</b> {{ items.Owner }}<br/>
+	<b>Tags:</b><i> {% for tags in tag %}
+		{{tags}}
+		{% endfor %}
+	</i><br/>
+	<b>Bid Status</b>: {{items.Status }}</br>
+	
+{% if has_bid %}
+<b>Current Winning Bid:</b> ${{ item_bid.CurrentwinningBid }}
+{% endif %}
+<hr>
+<h2>Owner details </h2>
+<b>Owners name :</b>{{item_author.fname}} {{ item_author.mname}} {{item_author.lname}}<br/>
+<b>Address: </b>{{item_author.country}}<br/>
+<b>Country: </b> {{ item_author.country}}<br/>
+</div>

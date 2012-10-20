@@ -1,0 +1,14 @@
+Dear {{ firstname }} {{lastname}},
+
+Thank you for signing up with {{ site_name }}.
+
+Your new username is {{ username }}
+
+To activate your account. Click this link within 48 hours : {% url YAAS.views.confirm activationkey %}
+
+you can login at {% url YAAS.views.login %} . Once logged in, you'll be able to access more features on our website.
+			
+Regards.
+
+Administration
+{{ admin }}

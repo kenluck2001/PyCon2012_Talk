@@ -1,0 +1,13 @@
+Dear {{ firstname }} {{lastname}},
+
+Congratulations,
+Your bid has been successful at {{ site_name }} has been successfully updated.
+
+You have to fill the customer review. This enable us know if you were satisfied with our service. Kindly make comments when providing your feedback. This form should be filled only when you have received the goods that you bought in the auction.
+
+click on link {% url YAAS.customerReview.views.customerReviewView bid_id %}
+			
+Regards.
+
+Administration
+{{ admin }}

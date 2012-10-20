@@ -1,0 +1,13 @@
+{% extends "Modbase.html" %}
+
+{% block site_wrapper %}
+<p>Your bid attempt was not successful!!!.</p>
+<p>This could be as a result of bidding lower than the highest bid or less than the minimum item price.</p>
+<p>Alternatively, You may be the owner of the auction so you cannot bid on your item.</p>
+<p>You can try again with an improved bid.</p>
+<p>If problem persist; You have to contact the administrator.</p>
+
+<a href="{% url YAAS.views.my_account %}"> <p> Back to Account page</p> </a>
+{% endblock %}
+
+
