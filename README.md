@@ -1,1 +1,1 @@
-This is the collection of source codes for the talk given in python conference that took place in aalto University Monday 22nd October, 2012.
+This is the collection of source codes that are available for Python conference talk in aalto University Monday 22nd October, 2012.
